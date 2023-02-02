@@ -7,7 +7,7 @@ use Yii\Forms\Component\Field;
 use Yii\Forms\Component\FilePond;
 use Yii\Forms\Component\Form;
 use Yii\Forms\Component\Input\Text;
-use Yii\Forms\Component\MarkdownEditor;
+use Yii\Forms\Component\MarkDownEditor;
 use Yiisoft\Http\Method;
 
 /**
