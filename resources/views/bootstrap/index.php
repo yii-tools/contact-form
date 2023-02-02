@@ -53,16 +53,16 @@ $fieldConfig = $parameterService->get('yii-tools/contact-form.field');
             ->notLabel() ?>
 
         <?= Field::widget(
-            [
-                FilePond::widget([$form, 'attachment'])
-                    ->acceptedFileTypes(['image/*'])
-                    ->allowMultiple(true)
-                    ->imagePreviewMarkupShow(false)
-                    ->imagePreviewTransparencyIndicator('#FFFFFF')
-                    ->maxFiles(3)
-                    ->maxFileSize('10MB'),
-            ],
-        )->notLabel() ?>
+                [
+                    FilePond::widget([$form, 'attachment'])
+                        ->acceptedFileTypes(['image/*'])
+                        ->allowMultiple(true)
+                        ->imagePreviewMarkupShow(false)
+                        ->imagePreviewTransparencyIndicator('#FFFFFF')
+                        ->maxFiles(3)
+                        ->maxFileSize('10MB'),
+                ],
+            )->notLabel() ?>
 
         <?= Field::widget([ButtonGroup::widget()])->containerClass('justify-content-end btn-toolbar') ?>
 
