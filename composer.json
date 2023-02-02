@@ -33,7 +33,10 @@
         "maglnet/composer-require-checker": "^4.3",
         "roave/infection-static-analysis-plugin": "^1.28",
         "vimeo/psalm": "^5.6",
-        "yii-tools/app": "^1.0@dev"
+        "yiisoft/router-fastroute": "^2.0",
+        "yiisoft/router": "^2.0",
+        "yiisoft/yii-middleware": "dev-master",
+        "yiisoft/yii-runner-http": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -54,9 +57,30 @@
         },
         "config-plugin": {
             "application-params": "?application-params.php",
-            "params": "params.php",
             "routes": "routes.php",
             "widgets": "widgets.php"
+        },
+        "config-plugin-environments": {
+            "test": {
+                "bootstrap": [
+                    "?bootstrap.php"
+                ],
+                "bootstrap-console": [
+                    "$bootstrap"
+                ],
+                "bootstrap-web": [
+                    "$bootstrap"
+                ],
+                "common": [
+                    "../tests/Support/Data/config/common/*.php"
+                ],
+                "params": "../tests/Support/Data/config/params.php",
+                "routes": "routes.php",
+                "web": [
+                    "$common",
+                    "../tests/Support/Data/config/web/*.php"
+                ]
+            }
         }
     },
     "config": {
