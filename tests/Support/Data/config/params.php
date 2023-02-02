@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Yii\Service\ParameterService;
-use Yiisoft\Aliases\Aliases;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\ErrorHandler\Middleware\ErrorCatcher;
@@ -11,7 +10,6 @@ use Yiisoft\I18n\Locale;
 use Yiisoft\Log\Target\File\FileTarget;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Session\Flash\Flash;
 use Yiisoft\Session\SessionMiddleware;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
