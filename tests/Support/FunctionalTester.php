@@ -6,6 +6,7 @@ namespace Yii\ContactForm\Tests\Support;
 
 /**
  * Inherited Methods
+ *
  * @method void wantTo($text)
  * @method void wantToTest($text)
  * @method void execute($callable)
