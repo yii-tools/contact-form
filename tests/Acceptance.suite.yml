@@ -3,13 +3,12 @@
 # Suite for acceptance tests.
 # Perform tests in browser using the WebDriver or PhpBrowser.
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
-
 actor: AcceptanceTester
 extensions:
   enabled:
     - Codeception\Extension\RunProcess:
-      0: php -d variables_order=EGPCS -S 127.0.0.1:8080 -t /vendor/yii-tools/app/public
-      sleep: 1
+        0: php -d variables_order=EGPCS -S 127.0.0.1:8080 -t tests/Support/Data/public
+        sleep: 1
 modules:
   enabled:
     - PhpBrowser:
