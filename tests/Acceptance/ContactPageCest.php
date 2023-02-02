@@ -18,6 +18,11 @@ final class ContactPageCest
 
     public function contactFormCanBeSubmitted(AcceptanceTester $I)
     {
+        $I->amGoingTo('go to the contact page');
+        $I->amOnPage('/contact');
+        $I->wantTo('ensure that contact page works');
+        $I->see('Contact');
+
         $I->amGoingTo('submit contact form with correct data');
         $I->fillField('#contactform-name', 'tester');
         $I->fillField('#contactform-email', 'tester@example.com');
