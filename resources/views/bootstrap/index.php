@@ -3,13 +3,10 @@
 declare(strict_types=1);
 
 use Yii\Forms\Component\ButtonGroup;
-use Yii\Forms\Component\DatePicker;
 use Yii\Forms\Component\Field;
 use Yii\Forms\Component\FilePond;
 use Yii\Forms\Component\Form;
-use Yii\Forms\Component\Input\File;
 use Yii\Forms\Component\Input\Text;
-use Yii\Forms\Component\Input\TextArea;
 use Yii\Forms\Component\MarkdownEditor;
 use Yiisoft\Http\Method;
 
@@ -55,17 +52,17 @@ $assetManager->registerMany($assets);
             ->notLabel() ?>
 
         <?= Field::widget(
-            [
-                FilePond::widget([$form, 'attachment'])
-                    ->acceptedFileTypes(['image/*'])
-                    ->allowMultiple(true)
-                    ->imagePreviewMarkupShow(false)
-                    ->imagePreviewTransparencyIndicator('#FFFFFF')
-                    ->maxFiles(3)
-                    ->maxFileSize('10MB')
-                    ->required(true)
-            ]
-        )->notLabel() ?>
+                [
+                    FilePond::widget([$form, 'attachment'])
+                        ->acceptedFileTypes(['image/*'])
+                        ->allowMultiple(true)
+                        ->imagePreviewMarkupShow(false)
+                        ->imagePreviewTransparencyIndicator('#FFFFFF')
+                        ->maxFiles(3)
+                        ->maxFileSize('10MB')
+                        ->required(true),
+                ]
+            )->notLabel() ?>
 
         <?= Field::widget([ButtonGroup::widget()])->containerClass('justify-content-end btn-toolbar') ?>
 

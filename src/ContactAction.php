@@ -55,7 +55,7 @@ final class ContactAction
                     ],
                 );
 
-                $contactForm->clear();
+            $contactForm->clear();
         }
 
         return $viewRenderer
