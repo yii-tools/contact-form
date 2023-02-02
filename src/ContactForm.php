@@ -19,6 +19,7 @@ final class ContactForm extends AbstractFormModel implements FormModelInterface
     private string $name = '';
     private string $pathUploadFile = '';
     private string $subject = '';
+    /** @psalm-var string[] */
     private array $saveFiles = [];
 
     public function clear(): void
@@ -46,6 +47,9 @@ final class ContactForm extends AbstractFormModel implements FormModelInterface
         return $this->name;
     }
 
+    /**
+     * @psalm-return string[]
+     */
     public function getSaveFiles(): array
     {
         return $this->saveFiles;
@@ -61,6 +65,7 @@ final class ContactForm extends AbstractFormModel implements FormModelInterface
         $result = parent::load($data, $formName);
 
         if ($result && $this->pathUploadFile !== '') {
+            /** @psalm-var string[] */
             $this->saveFiles = FilePondHelper::saveWithReturningFiles($this->attachment, $this->pathUploadFile);
         }
 

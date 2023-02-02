@@ -28,7 +28,7 @@ final class ContactAction
         ServerRequestInterface $serverRequest,
         ViewRenderer $viewRenderer
     ): ResponseInterface {
-        /** @var string[] */
+        /** @psalm-var array<string, mixed> */
         $body = $serverRequest->getParsedBody();
         $method = $serverRequest->getMethod();
 
@@ -60,7 +60,7 @@ final class ContactAction
 
         return $viewRenderer
             ->withViewPath(
-                '@contact-form-views' . '/' . $parameterService->get('yii-tools/contact-form.frameworkCss')
+                '@contact-form-views' . '/' . (string) $parameterService->get('yii-tools/contact-form.frameworkCss')
             )
             ->render('index', ['form' => $contactForm, 'parameterService' => $parameterService]);
     }
