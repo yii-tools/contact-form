@@ -31,14 +31,6 @@ To run the checker, execute the following command:
 composer run check-dependencies
 ```
 
-## Mutation testing
-
-Mutation testing is checked with [Infection](https://infection.github.io/). To run it:
-
-```shell
-composer run mutation
-```
-
 ## Static analysis
 
 The code is statically analyzed with [Psalm](https://psalm.dev/). To run static analysis:
@@ -59,7 +51,6 @@ composer run test
 
 [![build](https://github.com/yii-tools/contact-form/actions/workflows/build.yml/badge.svg)](https://github.com/yii-tools/contact-form/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/yii-tools/contact-form/branch/main/graph/badge.svg?token=MF0XUGVLYC)](https://codecov.io/gh/yii-tools/contact-form)
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyii-tools%2Fcontact-form%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/yii-tools/contact-form/main)
 [![static analysis](https://github.com/yii-tools/contact-form/actions/workflows/static.yml/badge.svg)](https://github.com/yii-tools/contact-form/actions/workflows/static.yml)
 [![type-coverage](https://shepherd.dev/github/yii-tools/contact-form/coverage.svg)](https://shepherd.dev/github/yii-tools/contact-form)
 [![StyleCI](https://github.styleci.io/repos/595721602/shield?branch=main)](https://github.styleci.io/repos/595721602?branch=main)
