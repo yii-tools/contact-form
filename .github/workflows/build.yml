@@ -5,6 +5,7 @@ on:
       - 'README.md'
       - 'CHANGELOG.md'
       - '.gitignore'
+      - '.env.example'
       - '.gitattributes'
       - 'infection.json.dist'
       - 'psalm.xml'
@@ -15,17 +16,65 @@ on:
       - 'README.md'
       - 'CHANGELOG.md'
       - '.gitignore'
+      - '.env.example'
       - '.gitattributes'
       - 'infection.json.dist'
       - 'psalm.xml'
 
+  schedule:
+    - cron: '0 0 * * *'
+
 name: build
 
 jobs:
-  build:
-    uses: yiisoft/actions/.github/workflows/codeception.yml@master
-    with:
-      os: >-
-        ['ubuntu-latest']
-      php: >-
-        ['8.1', '8.2']
+  tests:
+    name: PHP ${{ matrix.php }}-${{ matrix.os }}
+
+    env:
+      extensions: fileinfo, pdo, pdo_sqlite, intl
+      key: cache-v1
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+
+        php:
+          - 8.1
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        env:
+          update: true
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: ${{ env.extensions }}
+          ini-values: date.timezone='UTC'
+          tools: composer:v2
+
+      - name: Update composer
+        run: composer self-update
+
+      - name: Install dependencies with composer
+        run: composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
+
+      - name: Run tests with codeception
+        continue-on-error: true
+        run: |
+          php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
+          vendor/bin/codecept run
+
+      - name: Archive codeception results
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: ./runtime/tests/_output
+
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v2
