@@ -24,10 +24,10 @@ final class ContactPageCest
         $I->see('Contact');
 
         $I->amGoingTo('submit contact form with correct data');
-        $I->fillField('#contactform-name', 'tester');
-        $I->fillField('#contactform-email', 'tester@example.com');
-        $I->fillField('#contactform-subject', 'test subject');
-        $I->fillField('#contactform-message', 'test content');
+        $I->fillField('ContactForm[name]', 'tester');
+        $I->fillField('ContactForm[email]', 'tester@example.com');
+        $I->fillField('ContactForm[subject]', 'test subject');
+        $I->fillField('ContactForm[message]', 'test content');
 
         $I->click('send');
     }
