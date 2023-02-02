@@ -14,10 +14,12 @@
         "php": "^8.1",
         "cebe/markdown": "^1.2",
         "httpsoft/http-message": "^1.0.5",
+        "psr/http-message": "^1.0",
         "yii-tools/bootstrap5-asset": "^1.0@dev",
         "yii-tools/bootstrapicons-asset": "^1.0@dev",
         "yii-tools/form-model": "^1.0@dev",
         "yii-tools/forms": "^1.0@dev",
+        "yii-tools/service": "^1.0@dev",
         "yiisoft/aliases": "^2.0",
         "yiisoft/http": "^1.2",
         "yiisoft/yii-view": "^5.0"
