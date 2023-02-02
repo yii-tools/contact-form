@@ -23,10 +23,15 @@
         "yiisoft/yii-view": "^5.0"
     },
     "require-dev": {
+        "codeception/c3": "^2.7",
+        "codeception/codeception": "^5.0",
+        "codeception/module-asserts": "^3.0",
+        "codeception/module-cli": "^2.0",
+        "codeception/module-phpbrowser": "^3.0",
         "maglnet/composer-require-checker": "^4.3",
-        "phpunit/phpunit": "^9.5",
         "roave/infection-static-analysis-plugin": "^1.28",
-        "vimeo/psalm": "^5.6"
+        "vimeo/psalm": "^5.6",
+        "yii-tools/app": "^1.0@dev"
     },
     "autoload": {
         "psr-4": {
@@ -56,13 +61,15 @@
         "sort-packages": true,
         "allow-plugins": {
             "infection/extension-installer": true,
-            "foxy/foxy": true
+            "foxy/foxy": true,
+            "codeception/c3": true,
+            "yiisoft/config": true
         }
     },
     "scripts": {
         "check-dependencies": "composer-require-checker",
         "mutation": "roave-infection-static-analysis-plugin",
         "psalm": "psalm",
-        "test": "phpunit"
+        "test": "codecept run"
     }
 }
