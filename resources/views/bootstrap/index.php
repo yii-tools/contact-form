@@ -18,7 +18,8 @@ use Yiisoft\Http\Method;
 
 $this->setTitle('Contact');
 
-$assetManager->registerMany($assets);
+$assetManager->registerMany($parameterService->get('yii-tools/contact-form.assets'));
+$fieldConfig = $parameterService->get('yii-tools/contact-form.field');
 ?>
 
 <div class="container py-4">
@@ -36,15 +37,15 @@ $assetManager->registerMany($assets);
         ->method(Method::POST)
         ->begin() ?>
 
-        <?= Field::widget([Text::widget([$form, 'name'])], $theming)
+        <?= Field::widget([Text::widget([$form, 'name'])], $fieldConfig)
             ->containerClass('col-md-6 mb-3')
             ->prefix('<span class="input-group-text"><i class="bi bi-person-fill"></i></span>') ?>
 
-        <?= Field::widget([Text::widget([$form, 'email'])], $theming)
+        <?= Field::widget([Text::widget([$form, 'email'])], $fieldConfig)
             ->containerClass('col-md-6 mb-3')
             ->prefix('<span class="input-group-text">@</span>') ?>
 
-        <?= Field::widget([Text::widget([$form, 'subject'])], $theming)
+        <?= Field::widget([Text::widget([$form, 'subject'])], $fieldConfig)
             ->prefix('<span class="input-group-text"><i class="bi bi-chat-left-fill"></i></span>') ?>
 
         <?= Field::widget([MarkDownEditor::widget([$form, 'message'])])
@@ -59,8 +60,7 @@ $assetManager->registerMany($assets);
                         ->imagePreviewMarkupShow(false)
                         ->imagePreviewTransparencyIndicator('#FFFFFF')
                         ->maxFiles(3)
-                        ->maxFileSize('10MB')
-                        ->required(true),
+                        ->maxFileSize('10MB'),
                 ]
             )->notLabel() ?>
 
