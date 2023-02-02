@@ -1,16 +1,25 @@
 <p align="center">
-    <a href="https://github.com/yii-tools/template" target="_blank">
+    <a href="https://github.com/yii-tools/contact-form" target="_blank">
         <img src="https://avatars.githubusercontent.com/u/121752654?s=200&v=4" height="100px">
     </a>
-    <h1 align="center">Template.</h1>
+    <a href="https://github.com/yii-tools/contact-form" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/6501/6501050.png" height="100px">
+    </a>    
+    <h1 align="center">Contact Form for for YiiFramework v.3.0.</h1>
     <br>
 </p>
 
+## Requirements
+
+The minimun version of PHP required by this package is PHP 8.1.
+
+For install this package, you need [composer](https://getcomposer.org/).
+
 ## Install
 
-For use create a new repository from this template. For more information see [Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
-
-Also you can git clone this repository. For more information see [Cloning a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+```shell
+composer require yii-tools/contact-form
+```
 
 ## Checking dependencies
 
@@ -48,12 +57,12 @@ composer run test
 
 ## CI status
 
-[![build](https://github.com/yii-tools/template/actions/workflows/build.yml/badge.svg)](https://github.com/yii-tools/template/actions/workflows/build.yml)
-[![codecov](https://codecov.io/gh/yii-tools/template/branch/main/graph/badge.svg?token=MF0XUGVLYC)](https://codecov.io/gh/yii-tools/template)
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyii-tools%2Ftemplate%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/yii-tools/template/main)
-[![static analysis](https://github.com/yii-tools/template/actions/workflows/static.yml/badge.svg)](https://github.com/yii-tools/template/actions/workflows/static.yml)
-[![type-coverage](https://shepherd.dev/github/yii-tools/template/coverage.svg)](https://shepherd.dev/github/yii-tools/template)
-[![StyleCI](https://github.styleci.io/repos/494495136/shield?branch=main)](https://github.styleci.io/repos/494495136?branch=main)
+[![build](https://github.com/yii-tools/contact-form/actions/workflows/build.yml/badge.svg)](https://github.com/yii-tools/contact-form/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/yii-tools/contact-form/branch/main/graph/badge.svg?token=MF0XUGVLYC)](https://codecov.io/gh/yii-tools/contact-form)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyii-tools%2Fcontact-form%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/yii-tools/contact-form/main)
+[![static analysis](https://github.com/yii-tools/contact-form/actions/workflows/static.yml/badge.svg)](https://github.com/yii-tools/contact-form/actions/workflows/static.yml)
+[![type-coverage](https://shepherd.dev/github/yii-tools/contact-form/coverage.svg)](https://shepherd.dev/github/yii-tools/contact-form)
+[![StyleCI](https://github.styleci.io/repos/595721602/shield?branch=main)](https://github.styleci.io/repos/595721602?branch=main)
 
 ## License
 

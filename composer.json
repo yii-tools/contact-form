@@ -1,15 +1,26 @@
 {
-    "name": "yii-tools/template",
+    "name": "yii-tools/contact-form",
     "type": "library",
-    "description": "_____",
+    "description": "Contact Form for for YiiFramework v.3.0.",
     "keywords": [
-        "_____"
+        "yii-tools",
+        "contact-form",
+        "yii3"
     ],
     "license": "mit",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "cebe/markdown": "^1.2",
+        "httpsoft/http-message": "^1.0.5",
+        "yii-tools/bootstrap5-asset": "^1.0@dev",
+        "yii-tools/bootstrapicons-asset": "^1.0@dev",
+        "yii-tools/form-model": "^1.0@dev",
+        "yii-tools/forms": "^1.0@dev",
+        "yiisoft/aliases": "^2.0",
+        "yiisoft/http": "^1.2",
+        "yiisoft/yii-view": "^5.0"
     },
     "require-dev": {
         "maglnet/composer-require-checker": "^4.3",
@@ -19,23 +30,33 @@
     },
     "autoload": {
         "psr-4": {
-            "Template\\": "src"
+            "Yii\\ContactForm\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Template\\Tests\\": "tests"
+            "Yii\\ContactForm\\Tests\\": "tests"
         }
     },
     "extra": {
         "branch-alias": {
             "dev-main": "1.0.x-dev"
+        },
+        "config-plugin-options": {
+            "source-directory": "config"
+        },
+        "config-plugin": {
+            "application-params": "?application-params.php",
+            "params": "params.php",
+            "routes": "routes.php",
+            "widgets": "widgets.php"
         }
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "infection/extension-installer": true
+            "infection/extension-installer": true,
+            "foxy/foxy": true
         }
     },
     "scripts": {
