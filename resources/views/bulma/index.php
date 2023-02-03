@@ -21,8 +21,8 @@ use Yiisoft\Http\Method;
 $this->setTitle('Contact');
 
 $assetManager->registerMany([BulmaAsset::class, NpmAllAsset::class]);
-$buttonConfig = $parameterService->get("yii-tools/contact-form.bulma.widgets.buttonsGroup");
-$fieldConfig = $parameterService->get("yii-tools/contact-form.bulma.widgets.field");
+$buttonConfig = $parameterService->get('yii-tools/contact-form.bulma.widgets.buttonsGroup');
+$fieldConfig = $parameterService->get('yii-tools/contact-form.bulma.widgets.field');
 ?>
 
 <div class='container'>

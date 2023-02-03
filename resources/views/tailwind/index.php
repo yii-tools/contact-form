@@ -20,8 +20,8 @@ use Yiisoft\Http\Method;
 $this->setTitle('Contact');
 
 $assetManager->register(TailwindAsset::class);
-$buttonConfig = $parameterService->get("yii-tools/contact-form.tailwind.widgets.buttonsGroup");
-$fieldConfig = $parameterService->get("yii-tools/contact-form.tailwind.widgets.field");
+$buttonConfig = $parameterService->get('yii-tools/contact-form.tailwind.widgets.buttonsGroup');
+$fieldConfig = $parameterService->get('yii-tools/contact-form.tailwind.widgets.field');
 ?>
 
 <div class='py-4 lg:py-4 px-4 mx-auto max-w-screen-md'>

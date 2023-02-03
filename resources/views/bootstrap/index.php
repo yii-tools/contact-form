@@ -21,8 +21,8 @@ use Yiisoft\Http\Method;
 $this->setTitle('Contact');
 
 $assetManager->registerMany([Bootstrap5Asset::class, BootstrapIconsAsset::class]);
-$buttonConfig = $parameterService->get("yii-tools/contact-form.bootstrap.widgets.buttonsGroup");
-$fieldConfig = $parameterService->get("yii-tools/contact-form.bootstrap.widgets.field");
+$buttonConfig = $parameterService->get('yii-tools/contact-form.bootstrap.widgets.buttonsGroup');
+$fieldConfig = $parameterService->get('yii-tools/contact-form.bootstrap.widgets.field');
 ?>
 
 <div class='container py-2'>
