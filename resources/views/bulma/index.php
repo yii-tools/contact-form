@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Yii\Bulma\Asset\Cdn\BulmaAsset;
+use Yii\Fontawesome\Asset\Dev\Css\NpmAllAsset;
 use Yii\Forms\Component\ButtonGroup;
 use Yii\Forms\Component\Field;
 use Yii\Forms\Component\FilePond;
@@ -18,12 +20,13 @@ use Yiisoft\Http\Method;
 
 $this->setTitle('Contact');
 
-$assetManager->registerMany($parameterService->get("yii-tools/contact-form.$frameworkCss.assets"));
-$fieldConfig = $parameterService->get("yii-tools/contact-form.$frameworkCss.widgets.field");
+$assetManager->registerMany([BulmaAsset::class, NpmAllAsset::class]);
+$buttonConfig = $parameterService->get("yii-tools/contact-form.bulma.widgets.buttonsGroup");
+$fieldConfig = $parameterService->get("yii-tools/contact-form.bulma.widgets.field");
 ?>
 
-<div class="<?=$parameterService->get("yii-tools/contact-form.$frameworkCss.header.divClass")?>">
-    <h1 class="<?=$parameterService->get("yii-tools/contact-form.$frameworkCss.header.h1Class")?>">
+<div class='container'>
+    <h1 class='mb-3 title text-center'>
         <?= $this->getTitle() ?>
     </h1>
 
@@ -34,14 +37,23 @@ $fieldConfig = $parameterService->get("yii-tools/contact-form.$frameworkCss.widg
         ->method(Method::POST)
         ->begin() ?>
 
-        <?= Field::widget([Text::widget([$form, 'name'])], $fieldConfig)
-            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.name", '')) ?>
+        <?= Field::widget(
+            [
+                Text::widget([$form, 'name'])
+                    ->suffix('<span class="icon is-small is-left"><i class="fas fa-user"></i></span>'),
+            ],
+            $fieldConfig,
+        ) ?>
 
-        <?= Field::widget([Text::widget([$form, 'email'])], $fieldConfig)
-            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.email", '')) ?>
+        <?= Field::widget(
+            [
+                Text::widget([$form, 'email'])
+                    ->suffix('<span class="icon is-small is-left"><i class="fas fa-envelope"></i>'),
+            ],
+            $fieldConfig,
+        ) ?>
 
-        <?= Field::widget([Text::widget([$form, 'subject'])], $fieldConfig)
-            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.subject", '')) ?>
+        <?= Field::widget([Text::widget([$form, 'subject'])], $fieldConfig) ?>
 
         <?= Field::widget([MarkDownEditor::widget([$form, 'message'])])
             ->containerClass('mt-3')
@@ -59,13 +71,8 @@ $fieldConfig = $parameterService->get("yii-tools/contact-form.$frameworkCss.widg
                 ],
             )->notLabel() ?>
 
-        <?= Field::widget(
-                [
-                    ButtonGroup::widget(
-                        config: $parameterService->get("yii-tools/contact-form.$frameworkCss.widgets.buttonsGroup")
-                    ),
-                ],
-            ) ?>
+        <?= Field::widget([ButtonGroup::widget(config: $buttonConfig)])
+            ->containerClass('field is-grouped is-justify-content-end mt-6') ?>
 
     <?= Form::end() ?>
 <div>
