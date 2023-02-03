@@ -29,6 +29,6 @@ final class ContactPageCest
         $I->fillField('ContactForm[subject]', 'test subject');
         $I->fillField('ContactForm[message]', 'test content');
 
-        $I->click('send');
+        $I->click('SEND');
     }
 }
