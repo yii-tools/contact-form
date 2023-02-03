@@ -60,12 +60,12 @@ $fieldConfig = $parameterService->get("yii-tools/contact-form.$frameworkCss.widg
             )->notLabel() ?>
 
         <?= Field::widget(
-            [
-                ButtonGroup::widget(
-                    config: $parameterService->get("yii-tools/contact-form.$frameworkCss.widgets.buttonsGroup")
-                ),
-            ],
-        ) ?>
+                [
+                    ButtonGroup::widget(
+                        config: $parameterService->get("yii-tools/contact-form.$frameworkCss.widgets.buttonsGroup")
+                    ),
+                ],
+            ) ?>
 
     <?= Form::end() ?>
 <div>
