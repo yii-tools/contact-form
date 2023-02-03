@@ -8,6 +8,7 @@ use Yii\Forms\Component\FilePond;
 use Yii\Forms\Component\Form;
 use Yii\Forms\Component\Input\Text;
 use Yii\Forms\Component\MarkDownEditor;
+use Yii\Tailwind\Asset\Cdn\TailwindAsset;
 use Yiisoft\Http\Method;
 
 /**
@@ -18,12 +19,13 @@ use Yiisoft\Http\Method;
 
 $this->setTitle('Contact');
 
-$assetManager->registerMany($parameterService->get("yii-tools/contact-form.$frameworkCss.assets"));
-$fieldConfig = $parameterService->get("yii-tools/contact-form.$frameworkCss.widgets.field");
+$assetManager->register(TailwindAsset::class);
+$buttonConfig = $parameterService->get('yii-tools/contact-form.tailwind.widgets.buttonsGroup');
+$fieldConfig = $parameterService->get('yii-tools/contact-form.tailwind.widgets.field');
 ?>
 
-<div class="<?=$parameterService->get("yii-tools/contact-form.$frameworkCss.header.divClass")?>">
-    <h1 class="<?=$parameterService->get("yii-tools/contact-form.$frameworkCss.header.h1Class")?>">
+<div class='py-4 lg:py-4 px-4 mx-auto max-w-screen-md'>
+    <h1 class= 'mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white'>
         <?= $this->getTitle() ?>
     </h1>
 
@@ -34,14 +36,11 @@ $fieldConfig = $parameterService->get("yii-tools/contact-form.$frameworkCss.widg
         ->method(Method::POST)
         ->begin() ?>
 
-        <?= Field::widget([Text::widget([$form, 'name'])], $fieldConfig)
-            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.name", '')) ?>
+        <?= Field::widget([Text::widget([$form, 'name'])], $fieldConfig) ?>
 
-        <?= Field::widget([Text::widget([$form, 'email'])], $fieldConfig)
-            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.email", '')) ?>
+        <?= Field::widget([Text::widget([$form, 'email'])], $fieldConfig) ?>
 
-        <?= Field::widget([Text::widget([$form, 'subject'])], $fieldConfig)
-            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.subject", '')) ?>
+        <?= Field::widget([Text::widget([$form, 'subject'])], $fieldConfig) ?>
 
         <?= Field::widget([MarkDownEditor::widget([$form, 'message'])])
             ->containerClass('mt-3')
@@ -59,13 +58,7 @@ $fieldConfig = $parameterService->get("yii-tools/contact-form.$frameworkCss.widg
                 ],
             )->notLabel() ?>
 
-        <?= Field::widget(
-                [
-                    ButtonGroup::widget(
-                        config: $parameterService->get("yii-tools/contact-form.$frameworkCss.widgets.buttonsGroup")
-                    ),
-                ],
-            ) ?>
+        <?= Field::widget([ButtonGroup::widget(config: $buttonConfig)]) ?>
 
     <?= Form::end() ?>
 <div>
