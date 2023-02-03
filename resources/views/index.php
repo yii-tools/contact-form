@@ -18,35 +18,30 @@ use Yiisoft\Http\Method;
 
 $this->setTitle('Contact');
 
-$assetManager->registerMany($parameterService->get('yii-tools/contact-form.assets'));
-$fieldConfig = $parameterService->get('yii-tools/contact-form.field');
+$assetManager->registerMany($parameterService->get("yii-tools/contact-form.$frameworkCss.assets"));
+$fieldConfig = $parameterService->get("yii-tools/contact-form.$frameworkCss.widgets.field");
 ?>
 
-<div class="container py-4">
-    <h1 class="mb-3"><?= $this->getTitle() ?></h1>
-
-    <div class="alert alert-info mb-4 shadow" role="alert">
-        If you have inquiries or other questions, please fill out the following form to contact <b>terabytesoftw</b>, Thank you.
-    </div>
+<div class="<?=$parameterService->get("yii-tools/contact-form.$frameworkCss.header.divClass")?>">
+    <h1 class="<?=$parameterService->get("yii-tools/contact-form.$frameworkCss.header.h1Class")?>">
+        <?= $this->getTitle() ?>
+    </h1>
 
     <?= Form::widget()
         ->action($urlGenerator->generate('contact'))
-        ->class('row')
         ->csrf($csrf)
         ->enctype('multipart/form-data')
         ->method(Method::POST)
         ->begin() ?>
 
         <?= Field::widget([Text::widget([$form, 'name'])], $fieldConfig)
-            ->containerClass('col-md-6 mb-3')
-            ->prefix('<span class="input-group-text"><i class="bi bi-person-fill"></i></span>') ?>
+            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.name", '')) ?>
 
         <?= Field::widget([Text::widget([$form, 'email'])], $fieldConfig)
-            ->containerClass('col-md-6 mb-3')
-            ->prefix('<span class="input-group-text">@</span>') ?>
+            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.email", '')) ?>
 
         <?= Field::widget([Text::widget([$form, 'subject'])], $fieldConfig)
-            ->prefix('<span class="input-group-text"><i class="bi bi-chat-left-fill"></i></span>') ?>
+            ->prefix($parameterService->get("yii-tools/contact-form.$frameworkCss.prefix.subject", '')) ?>
 
         <?= Field::widget([MarkDownEditor::widget([$form, 'message'])])
             ->containerClass('mt-3')
@@ -64,7 +59,13 @@ $fieldConfig = $parameterService->get('yii-tools/contact-form.field');
                 ],
             )->notLabel() ?>
 
-        <?= Field::widget([ButtonGroup::widget()])->containerClass('justify-content-end btn-toolbar') ?>
+        <?= Field::widget(
+                [
+                    ButtonGroup::widget(
+                        config: $parameterService->get("yii-tools/contact-form.$frameworkCss.widgets.buttonsGroup")
+                    ),
+                ],
+            ) ?>
 
     <?= Form::end() ?>
 <div>

@@ -59,9 +59,14 @@ final class ContactAction
         }
 
         return $viewRenderer
-            ->withViewPath(
-                '@contact-form-views' . '/' . (string) $parameterService->get('yii-tools/contact-form.frameworkCss')
-            )
-            ->render('index', ['form' => $contactForm, 'parameterService' => $parameterService]);
+            ->withViewPath('@contact-form-views')
+            ->render(
+                'index',
+                [
+                    'form' => $contactForm,
+                    'frameworkCss' => (string) $parameterService->get('yii-tools/contact-form.frameworkCss'),
+                    'parameterService' => $parameterService,
+                ],
+            );
     }
 }
