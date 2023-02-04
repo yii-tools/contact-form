@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Yii\ContactForm;
 
-use Yii\Forms\FormModelInterface;
 use Yii\Forms\Helper\FilePondHelper;
 use Yii\FormModel\AbstractFormModel;
 
 /**
  * The contact form model is used to collect user input on contact page.
  */
-final class ContactForm extends AbstractFormModel implements FormModelInterface
+final class ContactForm extends AbstractFormModel
 {
     private array $attachment = [];
     private string $email = '';
