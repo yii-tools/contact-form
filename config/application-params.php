@@ -64,6 +64,33 @@ return [
                 ],
             ],
         ],
+        'materialize' => [
+            'widgets' => [
+                'buttonsGroup' => [
+                    'buttons()' => [
+                        [
+                            [
+                                'label' => 'SEND',
+                                'type' => 'submit',
+                                'attributes' => ['class' => 'btn green darken-4 text-white'],
+                            ],
+                            [
+                                'label' => 'RESET',
+                                'type' => 'reset',
+                                'attributes' => ['class' => 'btn red darken-4 text-white'],
+                            ],
+                        ],
+                    ],
+                ],
+                'field' => [
+                    'class()' => ['validate'],
+                    'containerClass()' => ['row'],
+                    'errorClass()' => ['d-block invalid-feedback'],
+                    'inputContainer()' => [true],
+                    'inputContainerClass()' => ['input-field col s12'],
+                ],
+            ],
+        ],
         'tailwind' => [
             'widgets' => [
                 'buttonsGroup' => [
@@ -108,6 +135,6 @@ return [
                 ],
             ],
         ],
-        'frameworkCss' => 'bootstrap',
+        'frameworkCss' => 'tailwind',
     ],
 ];

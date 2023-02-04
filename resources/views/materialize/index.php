@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-use Yii\Bulma\Asset\Cdn\BulmaAsset;
-use Yii\Fontawesome\Asset\Cdn\Css\CdnAllAsset;
 use Yii\Forms\Component\ButtonGroup;
 use Yii\Forms\Component\Field;
 use Yii\Forms\Component\FilePond;
 use Yii\Forms\Component\Form;
 use Yii\Forms\Component\Input\Text;
 use Yii\Forms\Component\MarkDownEditor;
+use Yii\Materialize\Asset\Cdn\MaterializeAsset;
 use Yiisoft\Http\Method;
 
 /**
@@ -20,38 +19,27 @@ use Yiisoft\Http\Method;
 
 $this->setTitle('Contact');
 
-$assetManager->registerMany([BulmaAsset::class, CdnAllAsset::class]);
-$buttonConfig = $parameterService->get('yii-tools/contact-form.bulma.widgets.buttonsGroup');
-$fieldConfig = $parameterService->get('yii-tools/contact-form.bulma.widgets.field');
+$assetManager->register(MaterializeAsset::class);
+$buttonConfig = $parameterService->get('yii-tools/contact-form.materialize.widgets.buttonsGroup');
+$fieldConfig = $parameterService->get('yii-tools/contact-form.materialize.widgets.field');
 ?>
 
 <div class='container'>
-    <h1 class='mb-3 title text-center'>
+    <h2 class= 'mb-3'>
         <?= $this->getTitle() ?>
-    </h1>
+    </h2>
 
     <?= Form::widget()
         ->action($urlGenerator->generate('contact'))
+        ->class('col s12')
         ->csrf($csrf)
         ->enctype('multipart/form-data')
         ->method(Method::POST)
         ->begin() ?>
 
-        <?= Field::widget(
-            [
-                Text::widget([$form, 'name'])
-                    ->suffix('<span class="icon is-small is-left"><i class="fas fa-user"></i></span>'),
-            ],
-            $fieldConfig,
-        ) ?>
+        <?= Field::widget([Text::widget([$form, 'name'])], $fieldConfig) ?>
 
-        <?= Field::widget(
-            [
-                Text::widget([$form, 'email'])
-                    ->suffix('<span class="icon is-small is-left"><i class="fas fa-envelope"></i>'),
-            ],
-            $fieldConfig,
-        ) ?>
+        <?= Field::widget([Text::widget([$form, 'email'])], $fieldConfig) ?>
 
         <?= Field::widget([Text::widget([$form, 'subject'])], $fieldConfig) ?>
 
@@ -71,8 +59,7 @@ $fieldConfig = $parameterService->get('yii-tools/contact-form.bulma.widgets.fiel
                 ],
             )->notLabel() ?>
 
-        <?= Field::widget([ButtonGroup::widget(config: $buttonConfig)])
-            ->containerClass('field is-grouped is-justify-content-end mt-6') ?>
+        <?= Field::widget([ButtonGroup::widget(config: $buttonConfig)])->containerClass('right-align') ?>
 
     <?= Form::end() ?>
 <div>
