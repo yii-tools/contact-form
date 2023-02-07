@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
+use Yii\FilePond\FilePond;
 use Yii\Forms\Component\ButtonGroup;
 use Yii\Forms\Component\Field;
-use Yii\Forms\Component\FilePond;
 use Yii\Forms\Component\Form;
 use Yii\Forms\Component\Input\Text;
-use Yii\Forms\Component\MarkDownEditor;
+use Yii\MarkDownEditor\MarkDownEditor;
 use Yii\Materialize\Asset\Cdn\MaterializeAsset;
 use Yiisoft\Http\Method;
 

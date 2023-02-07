@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 use Yii\Bootstrap5\Asset\Cdn\Bootstrap5Asset;
 use Yii\BootstrapIcons\Asset\Cdn\BootstrapIconsAsset;
+use Yii\FilePond\FilePond;
 use Yii\Forms\Component\ButtonGroup;
 use Yii\Forms\Component\Field;
-use Yii\Forms\Component\FilePond;
 use Yii\Forms\Component\Form;
 use Yii\Forms\Component\Input\Text;
-use Yii\Forms\Component\MarkDownEditor;
+use Yii\MarkDownEditor\MarkDownEditor;
 use Yiisoft\Http\Method;
 
 /**
