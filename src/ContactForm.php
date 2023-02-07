@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yii\ContactForm;
 
-use Yii\Forms\Helper\FilePondHelper;
+use Yii\FilePond\Helper\FilePondHelper;
 use Yii\FormModel\AbstractFormModel;
 
 /**
