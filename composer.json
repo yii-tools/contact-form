@@ -29,6 +29,7 @@
         "yii-tools/yii-validator": "^1.0@dev",
         "yiisoft/aliases": "^2.0",
         "yiisoft/http": "^1.2",
+        "yiisoft/validator": "^3.0@dev",
         "yiisoft/yii-view": "^5.0"
     },
     "require-dev": {
