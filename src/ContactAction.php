@@ -11,6 +11,7 @@ use Yii\Service\MailerService;
 use Yii\Service\ParameterService;
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Http\Method;
+use Yiisoft\Validator\ValidatorInterface;
 use Yiisoft\Yii\View\ViewRenderer;
 
 /**
@@ -26,6 +27,7 @@ final class ContactAction
         GithubMarkdown $parser,
         ParameterService $parameterService,
         ServerRequestInterface $serverRequest,
+        ValidatorInterface $validator,
         ViewRenderer $viewRenderer
     ): ResponseInterface {
         /** @psalm-var array<string, mixed> */
@@ -34,7 +36,7 @@ final class ContactAction
 
         $contactForm->setPathUploadFile($aliases->get('@runtime/uploads/'));
 
-        if ($method === Method::POST && $contactForm->load($body)) {
+        if ($method === Method::POST && $contactForm->load($body) && $contactForm->validate($validator)) {
             $message = '';
 
             if ($contactForm->getMessage() !== '') {

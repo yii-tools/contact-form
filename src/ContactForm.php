@@ -6,20 +6,31 @@ namespace Yii\ContactForm;
 
 use Yii\FilePond\Helper\FilePondHelper;
 use Yii\FormModel\AbstractFormModel;
+use Yii\Validator\HasValidate;
+use Yiisoft\Validator\Rule\Email;
+use Yiisoft\Validator\Rule\Length;
+use Yiisoft\Validator\Rule\Regex;
+use Yiisoft\Validator\Rule\Required;
+use Yiisoft\Validator\Rule\StopOnError;
 
 /**
  * The contact form model is used to collect user input on contact page.
  */
 final class ContactForm extends AbstractFormModel
 {
+    use HasValidate;
+
     private array $attachment = [];
+    #[Required(), Email(), Length(min: 5, max: 20)]
     private string $email = '';
     private string $message = '';
+    #[Required(), Length(min: 5, max: 20), Regex(pattern: '/^[a-zA-Z0-9\s]+$/')]
     private string $name = '';
     private string $pathUploadFile = '';
-    private string $subject = '';
     /** @psalm-var string[] */
     private array $saveFiles = [];
+    #[Required(), Length(min: 5), Regex(pattern: '/^[a-zA-Z0-9\s]+$/')]
+    private string $subject = '';
 
     public function clear(): void
     {
