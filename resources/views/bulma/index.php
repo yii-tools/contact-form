@@ -5,10 +5,10 @@ declare(strict_types=1);
 use Yii\Bulma\Asset\Cdn\BulmaAsset;
 use Yii\FilePond\FilePond;
 use Yii\Fontawesome\Asset\Cdn\Css\CdnAllAsset;
-use Yii\Forms\Component\ButtonGroup;
-use Yii\Forms\Component\Field;
-use Yii\Forms\Component\Form;
-use Yii\Forms\Component\Input\Text;
+use Yii\Forms\ButtonGroup;
+use Yii\Forms\Field;
+use Yii\Forms\Form;
+use Yii\Forms\Input\Text;
 use Yii\MarkDownEditor\MarkDownEditor;
 use Yiisoft\Http\Method;
 
