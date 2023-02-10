@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 use Yii\FilePond\FilePond;
-use Yii\Forms\Component\ButtonGroup;
-use Yii\Forms\Component\Field;
-use Yii\Forms\Component\Form;
-use Yii\Forms\Component\Input\Text;
+use Yii\Forms\ButtonGroup;
+use Yii\Forms\Field;
+use Yii\Forms\Form;
+use Yii\Forms\Input\Text;
 use Yii\MarkDownEditor\MarkDownEditor;
 use Yii\Tailwind\Asset\Cdn\TailwindAsset;
 use Yiisoft\Http\Method;
