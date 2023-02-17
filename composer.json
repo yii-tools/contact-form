@@ -30,7 +30,7 @@
         "yiisoft/aliases": "^2.0",
         "yiisoft/http": "^1.2",
         "yiisoft/validator": "^3.0@dev",
-        "yiisoft/yii-view": "^5.0"
+        "yiisoft/yii-view": "^6.0"
     },
     "require-dev": {
         "codeception/c3": "^2.7",
