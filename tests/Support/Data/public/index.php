@@ -40,5 +40,10 @@ require_once \dirname(__DIR__, 4) . '/vendor/autoload.php';
 /**
  * Run HTTP application runner
  */
-$runner = new HttpApplicationRunner(\dirname(__DIR__, 4), true, 'test');
+$runner = new HttpApplicationRunner(
+    rootPath: \dirname(__DIR__, 4),
+    debug: true,
+    environment: 'test',
+    diGroup: 'web',
+);
 $runner->run();
