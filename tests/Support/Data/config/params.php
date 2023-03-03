@@ -11,6 +11,7 @@ use Yiisoft\Log\Target\File\FileTarget;
 use Yiisoft\Router\Middleware\Router;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Session\SessionMiddleware;
+use Yiisoft\Translator\TranslatorInterface;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
@@ -35,6 +36,7 @@ return [
             '@root' => dirname(__DIR__, 4),
             '@assets' => '@tests/Support/Data/public/assets',
             '@assetsUrl' => '/assets',
+            '@baseUrl' => '/',
             '@contact-form-mail' => '@resources/mail',
             '@contact-form-views' => '@resources/views',
             '@layout' => '@tests/Support/Data/resources/layout',
@@ -69,6 +71,7 @@ return [
             'assetManager' => Reference::to(AssetManager::class),
             'locale' => Reference::to(Locale::class),
             'parameterService' => Reference::to(ParameterService::class),
+            'translator' => Reference::to(TranslatorInterface::class),
             'urlGenerator' => Reference::to(UrlGeneratorInterface::class),
         ],
     ],

@@ -29,7 +29,7 @@
         "yii-tools/yii-validator": "^1.0@dev",
         "yiisoft/aliases": "^3.0",
         "yiisoft/http": "^1.2",
-        "yiisoft/validator": "^3.0@dev",
+        "yiisoft/validator": "^1.0",
         "yiisoft/yii-view": "^6.0"
     },
     "require-dev": {
@@ -68,14 +68,10 @@
             "di": [],
             "di-web": [],
             "params": "params.php",
-            "routes": "routes.php",
-            "widgets": "widgets.php"
+            "routes": "routes.php"
         },
         "config-plugin-environments": {
             "test": {
-                "bootstrap": "?bootstrap.php",
-                "bootstrap-console": "$bootstrap",
-                "bootstrap-web": "$bootstrap",
                 "common": [
                     "$di",
                     "../tests/Support/Data/config/common/*.php"
