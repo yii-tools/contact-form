@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yii\ContactForm;
 
+use JsonException;
 use Yii\FilePond\Helper\FilePondHelper;
 use Yii\FormModel\AbstractFormModel;
 use Yii\Validator\HasValidate;
@@ -20,15 +21,15 @@ final class ContactForm extends AbstractFormModel
     use HasValidate;
 
     private array $attachment = [];
-    #[Required(), Email(), Length(min: 5, max: 20)]
+    #[Required, Email, Length(min: 5, max: 20)]
     private string $email = '';
     private string $message = '';
-    #[Required(), Length(min: 5, max: 20), Regex(pattern: '/^[a-zA-Z0-9\s]+$/')]
+    #[Required, Length(min: 5, max: 20), Regex(pattern: '/^[a-zA-Z0-9\s]+$/')]
     private string $name = '';
     private string $pathUploadFile = '';
     /** @psalm-var string[] */
     private array $saveFiles = [];
-    #[Required(), Length(min: 5), Regex(pattern: '/^[a-zA-Z0-9\s]+$/')]
+    #[Required, Length(min: 5), Regex(pattern: '/^[a-zA-Z0-9\s]+$/')]
     private string $subject = '';
 
     public function clear(): void
@@ -69,6 +70,9 @@ final class ContactForm extends AbstractFormModel
         return $this->subject;
     }
 
+    /**
+     * @throws JsonException
+     */
     public function load(array $data, string $formName = null): bool
     {
         $result = parent::load($data, $formName);

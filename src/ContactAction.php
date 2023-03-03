@@ -30,7 +30,7 @@ final class ContactAction
         ValidatorInterface $validator,
         ViewRenderer $viewRenderer
     ): ResponseInterface {
-        /** @psalm-var array<string, mixed> */
+        /** @psalm-var array<string, mixed> $body */
         $body = $serverRequest->getParsedBody();
         $method = $serverRequest->getMethod();
 
