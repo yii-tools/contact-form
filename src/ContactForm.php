@@ -21,10 +21,10 @@ final class ContactForm extends AbstractFormModel
     use HasValidate;
 
     private array $attachment = [];
-    #[Required, Email, Length(min: 5, max: 20)]
+    #[Required, Email, Length(min: 5, max: 50)]
     private string $email = '';
     private string $message = '';
-    #[Required, Length(min: 5, max: 20), Regex(pattern: '/^[a-zA-Z0-9\s]+$/')]
+    #[Required, Length(min: 5, max: 25), Regex(pattern: '/^[a-zA-Z0-9\s]+$/')]
     private string $name = '';
     private string $pathUploadFile = '';
     /** @psalm-var string[] */
